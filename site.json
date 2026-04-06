@@ -1,0 +1,41 @@
+{
+  "baseUrl": "",
+  "timeZone": "Asia/Singapore",
+  "style": {
+    "codeTheme": "light"
+  },
+  "titlePrefix": "",
+  "titleSuffix": "",
+  "ignore": [
+    "_markbind/layouts/*",
+    "_markbind/logs/*",
+    "_site/*",
+    "site.json",
+    "*.md",
+    "*.njk",
+    ".git/*",
+    ".gitignore",
+    "node_modules/*"
+  ],
+  "pagesExclude": ["node_modules/*"],
+  "pages": [
+    {
+      "src": "index.md"
+    },
+    {
+      "glob": ["**/index.md", "**/*.md"]
+    }
+  ],
+  "enableSearch": true,
+  "plugins": ["mermaid", "codeBlockCopyButtons", "codeBlockWrapButtons"],
+  "pluginsContext": {
+    "mermaid": {
+      "address": "https://unpkg.com/mermaid@11.7.0/dist/mermaid.esm.min.mjs"
+    }
+  },
+  "deploy": {
+    "message": "Site Update.",
+    "repo": "https://github.com/power-narrator/power-narrator.github.io.git",
+    "branch": "gh-pages"
+  }
+}
