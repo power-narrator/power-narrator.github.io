@@ -1,0 +1,50 @@
+{
+  "enableSearch": true,
+  "pages": [
+    {
+      "src": "404.md",
+      "title": "Page not found",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/README.md",
+      "headings": {
+        "power-narrator-website": "Power Narrator Website"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/developer-guide.md",
+      "title": "Power Narrator Developer Guide",
+      "headings": {
+        "power-narrator-developer-guide": "Power Narrator Developer Guide"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/team.md",
+      "title": "Power Narrator Team",
+      "headings": {
+        "power-narrator-team": "Power Narrator Team"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/user-guide.md",
+      "title": "Power Narrator User Guide",
+      "headings": {
+        "power-narrator-user-guide": "Power Narrator User Guide"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "index.md",
+      "title": "Power Narrator Website",
+      "headings": {
+        "power-narrator": "Power Narrator"
+      },
+      "headingKeywords": {}
+    }
+  ]
+}
