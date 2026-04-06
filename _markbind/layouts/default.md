@@ -4,7 +4,7 @@
 
 <header sticky>
   <navbar type="dark">
-    <a slot="brand" href="{{baseUrl}}/index.html" title="Home" class="navbar-brand">Power Narrator</a>
+    <a slot="brand" href="{{baseUrl}}/index.html" title="Home" class="navbar-brand text-info">Power Narrator</a>
     <li><a href="{{baseUrl}}/contents/user-guide.html" class="nav-link">User Guide</a></li>
     <li><a href="{{baseUrl}}/contents/developer-guide.html" class="nav-link">Developer Guide</a></li>
     <li><a href="{{baseUrl}}/contents/team.html" class="nav-link">Team</a></li>
