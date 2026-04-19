@@ -8,8 +8,9 @@
 
 # {{ title }}
 
-> [!IMPORTANT]
-> **macOS Only Support**: Power Narrator currently requires **macOS** for its automation engine (AppleScript) to interface with Microsoft PowerPoint. Windows support is planned but not currently available.
+<box type="warning" seamless>
+   <b>macOS Only Support</b>: Power Narrator currently requires <b>macOS</b> for its automation engine (AppleScript) to interface with Microsoft PowerPoint. Windows support is planned but not currently available.
+</box>
 
 ## Setup & Installation
 
