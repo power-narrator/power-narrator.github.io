@@ -4,7 +4,7 @@
     <script src="/markbind/js/theme-manager.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="generator" content="MarkBind 7.0.0">
+    <meta name="generator" content="MarkBind 7.1.1">
     <meta name="viewport" content="width=device-width, initial-scale=1"><title>Power Narrator Developer Guide</title> <link rel="stylesheet" href="/markbind/css/bootstrap.min.css"> <link rel="stylesheet" href="/markbind/fontawesome/css/all.min.css">
     
     
@@ -20,7 +20,424 @@
 <body 
    data-bs-spy="scroll" data-bs-target="#mb-page-nav" data-bs-offset="100"  
   data-code-theme="light">
-<div id="app"><!--[--><header sticky><div data-v-94b60ff6><nav class="navbar navbar-expand-md d-print-none navbar-dark bg-dark" data-v-94b60ff6><div class="container-fluid" data-v-94b60ff6><div class="navbar-left" data-v-94b60ff6><!--[--><a href="/index.html" title="Home" class="navbar-brand text-info">Power Narrator</a><!--]--></div><div class="navbar-default" data-v-94b60ff6><ul class="navbar-nav me-auto mt-2 mt-lg-0" data-v-94b60ff6><!--[--> <li><a href="/contents/user-guide.html" class="nav-link">User Guide</a></li> <li><a href="/contents/developer-guide.html" class="nav-link">Developer Guide</a></li> <li><a href="/contents/team.html" class="nav-link">Team</a></li> <!--]--></ul></div><div class="navbar-right" data-v-94b60ff6><ul class="navbar-nav" data-v-94b60ff6><!--[--><li><form class="navbar-form"><div style="position:relative;" class="dropdown" data-v-103d5c4e><!--[--><input value="" data-bs-toggle="dropdown" type="text" class="form-control" placeholder="Search" autocomplete="off" data-v-103d5c4e><div class="form-control placeholder-div-hidden" data-v-103d5c4e>Search</div><!--]--><ul class="dropdown-menu search-dropdown-menu dropdown-menu-hidden dropdown-menu-end" data-v-103d5c4e><!--[--><!--]--></ul></div></form></li><!--]--></ul><!----></div></div></nav><div style="display:none;" class="lower-navbar-container" data-v-94b60ff6><!--[--><!----><!----><!--]--></div></div></header> <div id="flex-body"><div id="content-wrapper"><br> <h1 id="power-narrator-developer-guide">Power Narrator Developer Guide<a class="fa fa-anchor" href="#power-narrator-developer-guide" onclick="event.stopPropagation()"></a></h1> <p>To be filled ...</p></div> <nav id="page-nav" data-v-6b1b63d2><!--[--><div class="nav-component slim-scroll"><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-6b1b63d2><!--[--><a class="nav-link py-1" href="#power-narrator-developer-guide">Power Narrator Developer Guide‎</a><!--]--><!--v-if--></nav></div><!--]--><!--v-if--></nav> <div class="scroll-top-button fa-lg d-print-none" style="display:none;bottom:2%;right:2%;position:fixed;" aria-hidden="true"><!--[--><i class="fas fa-arrow-circle-up"></i><!--]--></div></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 7.0.0</a> on Mon, 6 Apr 2026, 17:57:47 GMT+8]</small></div></footer><!--]--></div>
+<div id="app"><!--[--><header sticky><div data-v-94b60ff6><nav class="navbar navbar-expand-md d-print-none navbar-dark bg-dark" data-v-94b60ff6><div class="container-fluid" data-v-94b60ff6><div class="navbar-left" data-v-94b60ff6><!--[--><a href="/index.html" title="Home" class="navbar-brand text-info">Power Narrator</a><!--]--></div><div class="navbar-default" data-v-94b60ff6><ul class="navbar-nav me-auto mt-2 mt-lg-0" data-v-94b60ff6><!--[--> <li><a href="/contents/user-guide.html" class="nav-link">User Guide</a></li> <li><a href="/contents/developer-guide.html" class="nav-link">Developer Guide</a></li> <li><a href="/contents/team.html" class="nav-link">Team</a></li> <!--]--></ul></div><div class="navbar-right" data-v-94b60ff6><ul class="navbar-nav" data-v-94b60ff6><!--[--><li><form class="navbar-form"><div style="position:relative;" class="dropdown" data-v-103d5c4e><!--[--><input value="" data-bs-toggle="dropdown" type="text" class="form-control" placeholder="Search" autocomplete="off" data-v-103d5c4e><div class="form-control placeholder-div-hidden" data-v-103d5c4e>Search</div><!--]--><ul class="dropdown-menu search-dropdown-menu dropdown-menu-hidden dropdown-menu-end" data-v-103d5c4e><!--[--><!--]--></ul></div></form></li><!--]--></ul><!----></div></div></nav><div style="display:none;" class="lower-navbar-container" data-v-94b60ff6><!--[--><!----><!----><!--]--></div></div></header> <div id="flex-body"><div id="content-wrapper"><br> <h1 id="power-narrator-developer-guide">Power Narrator Developer Guide<a class="fa fa-anchor" href="#power-narrator-developer-guide" onclick="event.stopPropagation()"></a></h1> <blockquote><p>[!IMPORTANT]
+<strong>macOS Only Support</strong>: Power Narrator currently requires <strong>macOS</strong> for its automation engine (AppleScript and Osascript) to interface with Microsoft PowerPoint. Windows support is planned but not currently available.</p></blockquote> <h2 id="setup-and-amp-installation">Setup &amp; Installation<a class="fa fa-anchor" href="#setup-and-amp-installation" onclick="event.stopPropagation()"></a></h2> <p>To get started with development on your local machine:</p> <ol><li><p><strong>Clone the repository</strong>:</p> <pre><code class="hljs bash"><span>git <span class="hljs-built_in">clone</span> https://github.com/power-narrator/power-narrator-fe.git
+</span><span><span class="hljs-built_in">cd</span> power-narrator
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre></li> <li><p><strong>Install dependencies</strong>:</p> <pre><code class="hljs bash"><span>npm install
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre></li> <li><p><strong>Run in development mode</strong>:</p> <pre><code class="hljs bash"><span>npm run dev
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre></li></ol> <h2 id="build-instructions">Build Instructions<a class="fa fa-anchor" href="#build-instructions" onclick="event.stopPropagation()"></a></h2> <p>To build and package the application for distribution:</p> <ul><li><p><strong>Compile and Build</strong>:</p> <pre><code class="hljs bash"><span>npm run build
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre><p>This runs TypeScript compilation, Vite build for the frontend, and compiles the Electron main process.</p></li> <li><p><strong>Package for Distribution</strong>:</p> <pre><code class="hljs bash"><span>npm run dist
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre><p>This builds the application and creates a distributable package (e.g., <code class="hljs inline no-lang">.dmg</code> or <code class="hljs inline no-lang">.app</code> for macOS) using <code class="hljs inline no-lang">electron-builder</code>.</p></li></ul> <h2 id="system-requirements">System Requirements<a class="fa fa-anchor" href="#system-requirements" onclick="event.stopPropagation()"></a></h2> <ul><li><strong>Operating System</strong>: macOS (Required for AppleScript automation)</li> <li><strong>Node.js</strong>: v25 or higher</li> <li><strong>Microsoft PowerPoint</strong>: Desktop version with a valid license</li> <li><strong>Docker Desktop</strong>: Only required if using the <strong>Local TTS</strong> mode</li></ul> <h2 id="architecture-overview">Architecture Overview<a class="fa fa-anchor" href="#architecture-overview" onclick="event.stopPropagation()"></a></h2> <p>Power Narrator is built as an Electron application with three distinct layers providing a modular and extensible architecture.</p> <pre><code class="hljs"><span>┌─────────────────────────────────────────┐
+</span><span>│           React Frontend (Vite)         │  ← src/
+</span><span>│  ViewerPage · SettingsModal · LandingPage│
+</span><span>└────────────────┬────────────────────────┘
+</span><span>                 │  Electron IPC (ipcRenderer / ipcMain)
+</span><span>┌────────────────▼────────────────────────┐
+</span><span>│           Electron Main Process         │  ← electron/main.ts
+</span><span>│   IPC Handlers · TtsManager · Store     │
+</span><span>└──────┬─────────────────────┬────────────┘
+</span><span>       │                     │
+</span><span>┌──────▼──────┐     ┌────────▼────────────┐
+</span><span>│ PptProvider │     │    TtsProvider       │
+</span><span>│  (Platform) │     │  (TTS Backend)       │
+</span><span>└──────┬──────┘     └────────┬────────────┘
+</span><span>       │                     │
+</span><span>  ┌────▼──────────┐    ┌─────▼────────────┐
+</span><span>  │ MacPptProvider│    │ GcpTtsProvider   │
+</span><span>  │ (AppleScript) │    │ LocalTtsProvider │
+</span><span>  └──────┬────────┘    └──────────────────┘
+</span><span>         │
+</span><span>  ┌──────▼────────┐
+</span><span>  │XmlPptProvider │  ← Decorator over MacPptProvider
+</span><span>  │ (XML CLI)     │      uses slide-voice-pptx binary
+</span><span>  └───────────────┘
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre><h3 id="core-design-patterns">Core Design Patterns<a class="fa fa-anchor" href="#core-design-patterns" onclick="event.stopPropagation()"></a></h3> <ul><li><strong>Provider Pattern</strong>: <code class="hljs inline no-lang">PptProvider</code> and <code class="hljs inline no-lang">TtsProvider</code> interfaces allow for multiple implementations (e.g., switching between Google Cloud and Local TTS).</li> <li><strong>Decorator Pattern</strong>: <code class="hljs inline no-lang">XmlPptProvider</code> wraps the standard provider to add XML-based manipulation capabilities via a bundled Python CLI.</li></ul> <h2 id="configuration">Configuration<a class="fa fa-anchor" href="#configuration" onclick="event.stopPropagation()"></a></h2> <h3 id="environment-variables-env">Environment Variables (.env)<a class="fa fa-anchor" href="#environment-variables-env" onclick="event.stopPropagation()"></a></h3> <p>Create a <code class="hljs inline no-lang">.env</code> file in the root directory to configure your TTS providers:</p> <pre><code class="hljs"><span># --- Google Cloud TTS ---
+</span><span># Set provider to &#39;gcp&#39; and provide the path to your service account key
+</span><span>TTS_PROVIDER=gcp
+</span><span>GOOGLE_APPLICATION_CREDENTIALS=/path/to/your-google-cloud-key.json
+</span><span>
+</span><span># --- Local TTS (Mimic 3) ---
+</span><span># Uncomment to use local server (default if TTS_PROVIDER is missing or not &#39;gcp&#39;)
+</span><span># TTS_PROVIDER=local
+</span><span># LOCAL_TTS_URL=http://localhost:59125/api/tts
+</span><span># LOCAL_TTS_VOICE=en_UK/apope_low
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre><h3 id="google-cloud-tts-recommended">Google Cloud TTS (Recommended)<a class="fa fa-anchor" href="#google-cloud-tts-recommended" onclick="event.stopPropagation()"></a></h3> <ol><li>Create a GCP Service Account and download its JSON key.</li> <li>In the app, click the <strong>Settings (⚙)</strong> icon and select the JSON key.</li> <li>The app will automatically switch to GCP TTS.</li></ol> <h3 id="local-tts-offline">Local TTS (Offline)<a class="fa fa-anchor" href="#local-tts-offline" onclick="event.stopPropagation()"></a></h3> <p>Start the Mimic 3 Docker container:</p> <pre><code class="hljs bash"><span>docker run -it --user root -p 59125:59125 mycroftai/mimic3
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre><h3 id="compiling-the-powerpoint-add-in-ppam">Compiling the PowerPoint Add-in (PPAM)<a class="fa fa-anchor" href="#compiling-the-powerpoint-add-in-ppam" onclick="event.stopPropagation()"></a></h3> <p>If you modify the VBA source code (<code class="hljs inline no-lang">electron/scripts/ppt-tools.bas</code>), you must manually recompile the <code class="hljs inline no-lang">.ppam</code> add-in file. Follow these step-by-step instructions:</p> <ol><li><strong>Open Microsoft PowerPoint</strong>.</li> <li><strong>Access the Visual Basic Editor</strong>:
+<ul><li>Go to the <strong>Tools</strong> menu at the top of your screen.</li> <li>Select <strong>Macro</strong> → <strong>Visual Basic Editor</strong>.</li> <li><em>(Optional: If you have the <strong>Developer</strong> tab enabled in your ribbon, you can simply click <strong>Visual Basic</strong> there).</em></li></ul></li> <li><strong>Clean Up Old Modules</strong>:
+<ul><li>In the <strong>Project Explorer</strong> window on the left side, look for a folder named <strong>Modules</strong>.</li> <li>If a module named <code class="hljs inline no-lang">AudioTools</code> already exists, right-click it and select <strong>Remove AudioTools...</strong>.</li> <li>When asked &quot;Do you want to export AudioTools before removing it?&quot;, select <strong>No</strong>.</li></ul></li> <li><strong>Import the Source Code</strong>:
+<ul><li>Go to the <strong>File</strong> menu in the Visual Basic Editor.</li> <li>Select <strong>Import File...</strong>.</li> <li>Navigate to your project directory and select the <code class="hljs inline no-lang">electron/scripts/ppt-tools.bas</code> file.</li> <li>Click <strong>Open</strong>. You should now see <code class="hljs inline no-lang">AudioTools</code> listed under the Modules folder.</li></ul></li> <li><strong>Save as a PowerPoint Add-in</strong>:
+<ul><li>While still in the Visual Basic Editor, go to the <strong>File</strong> menu.</li> <li>Select <strong>Export...</strong>.</li> <li>In the &quot;File Format&quot; or &quot;Save as type&quot; dropdown menu, choose <strong>PowerPoint Add-in (.ppam)</strong>.</li> <li>Ensure the filename is <code class="hljs inline no-lang">ppt-tools.ppam</code>.</li> <li>Save the file into the <code class="hljs inline no-lang">electron/scripts/</code> directory of your project, overwriting the existing file if prompted.</li></ul></li></ol> <h3 id="loading-powerpoint-add-in-ppam">Loading PowerPoint Add-in (PPAM)<a class="fa fa-anchor" href="#loading-powerpoint-add-in-ppam" onclick="event.stopPropagation()"></a></h3> <ol><li>In PowerPoint, go to <strong>Tools</strong> → <strong>PowerPoint Add-ins…</strong></li> <li>Click <strong>+</strong> and select <code class="hljs inline no-lang">electron/scripts/ppt-tools.ppam</code>.</li> <li>Allow macro execution.</li></ol> <h2 id="project-structure">Project Structure<a class="fa fa-anchor" href="#project-structure" onclick="event.stopPropagation()"></a></h2> <ul><li><code class="hljs inline no-lang">electron/</code>: Main process logic, IPC handlers, and providers.
+<ul><li><code class="hljs inline no-lang">platform/</code>: PowerPoint provider implementations.</li> <li><code class="hljs inline no-lang">tts/</code>: Text-to-speech providers and managers.</li> <li><code class="hljs inline no-lang">scripts/</code>: AppleScript automation and VBA macros.</li></ul></li> <li><code class="hljs inline no-lang">src/</code>: React frontend source code built with Vite and Mantine.</li> <li><code class="hljs inline no-lang">xml/</code>: Python source for the optional XML CLI manipulation tool.</li></ul> <h2 id="xml-cli-mode">XML CLI Mode<a class="fa fa-anchor" href="#xml-cli-mode" onclick="event.stopPropagation()"></a></h2> <p>Power Narrator includes a different mode of operation that uses a Python-based CLI (<code class="hljs inline no-lang">slide-voice-pptx</code>) to manipulate the <code class="hljs inline no-lang">.pptx</code> XML directly, bypassing some VBA macro dependencies.</p> <ul><li>Can be toggled in <strong>Settings</strong>.</li> <li>Supports audio insertion/removal and metadata queries.</li> <li>automatically closes and reopens the presentation during operations to ensure XML integrity.</li></ul> <h2 id="troubleshooting">Troubleshooting<a class="fa fa-anchor" href="#troubleshooting" onclick="event.stopPropagation()"></a></h2> <ul><li><strong>Gatekeeper Warning</strong>: If macOS blocks the app, run:<pre><code class="hljs bash"><span>xattr -cr <span class="hljs-string">&quot;/path/to/Power Narrator.app&quot;</span>
+</span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Copy</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path d="M 11.273438 0 L 2.546875 0 C 1.746094 0 1.089844 0.613281 1.089844
+      1.363281 L 1.089844 10.910156 L 2.546875 10.910156 L 2.546875 1.363281 L 11.273438
+      1.363281 Z M 13.453125 2.726562 L 5.453125 2.726562 C 4.65625 2.726562 4 3.339844 4
+      4.089844 L 4 13.636719 C 4 14.386719 4.65625 15 5.453125 15 L 13.453125 15 C 14.253906
+      15 14.910156 14.386719 14.910156 13.636719 L 14.910156 4.089844 C 14.910156 3.339844
+      14.253906 2.726562 13.453125 2.726562 Z M 13.453125 13.636719 L 5.453125 13.636719 L
+      5.453125 4.089844 L 13.453125 4.089844 Z M 13.453125 13.636719 "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button><button onclick="toggleCodeBlockWrap(this)" class="function-btn d-print-none wrap-button">
+    <div class="tooltip-container">
+    <span class="tooltiptext">Wrap Text</span>
+    <div class="function-btn-body">
+    
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" version="1.1">
+    <g id="surface1">
+      <path id="path17964" d="M 1.109375 0 L 1.109375 2.5351562 L 2.0410156 2.5351562 L
+      2.0410156 0.93164062 L 4.8203125 0.93164062 L 4.8203125 9.3222656 L 3.4746094
+      9.3222656 L 3.4746094 10.144531 L 8.8027344 10.144531 L 8.8027344 9.3222656 L
+      7.4492188 9.3222656 L 7.4492188 0.93164062 L 10.25 0.93164062 L 10.25 2.5351562 L
+      11.166016 2.5351562 L 11.166016 0 L 1.109375 0 z M 10.84375 5.1054688 L 10.84375
+      6.6074219 C 12.268027 6.6074219 13.40625 7.7456444 13.40625 9.1699219 C 13.40625
+      10.185673 12.827237 11.055036 11.978516 11.470703 L 11.978516 9.5175781 L 7.1386719
+      12.3125 L 11.978516 15.105469 L 11.978516 13.072266 C 13.66701 12.577757 14.910156
+      11.012746 14.910156 9.1699219 C 14.910156 6.9333638 13.080308 5.1054688 10.84375
+      5.1054688 z "></path>
+    </g>
+</svg>
+
+    </div>
+    </div>
+    </button></div></pre></li> <li><strong>Local TTS 500 Error</strong>: Verify the Docker container is running on port <code class="hljs inline no-lang">59125</code> and the voice name in <code class="hljs inline no-lang">.env</code> is valid.</li></ul></div> <nav id="page-nav" data-v-6b1b63d2><!--[--><div class="nav-component slim-scroll"><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-6b1b63d2><!--[--><a class="nav-link py-1" href="#power-narrator-developer-guide">Power Narrator Developer Guide‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#setup-and-amp-installation">Setup &amp; Installation‎</a> <a class="nav-link py-1" href="#build-instructions">Build Instructions‎</a> <a class="nav-link py-1" href="#system-requirements">System Requirements‎</a> <a class="nav-link py-1" href="#architecture-overview">Architecture Overview‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#core-design-patterns">Core Design Patterns‎</a></nav> <a class="nav-link py-1" href="#configuration">Configuration‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#environment-variables-env">Environment Variables (.env)‎</a> <a class="nav-link py-1" href="#google-cloud-tts-recommended">Google Cloud TTS (Recommended)‎</a> <a class="nav-link py-1" href="#local-tts-offline">Local TTS (Offline)‎</a> <a class="nav-link py-1" href="#compiling-the-powerpoint-add-in-ppam">Compiling the PowerPoint Add-in (PPAM)‎</a> <a class="nav-link py-1" href="#loading-powerpoint-add-in-ppam">Loading PowerPoint Add-in (PPAM)‎</a></nav> <a class="nav-link py-1" href="#project-structure">Project Structure‎</a> <a class="nav-link py-1" href="#xml-cli-mode">XML CLI Mode‎</a> <a class="nav-link py-1" href="#troubleshooting">Troubleshooting‎</a></nav><!--]--><!--v-if--></nav></div><!--]--><!--v-if--></nav> <div class="scroll-top-button fa-lg d-print-none" style="display:none;bottom:2%;right:2%;position:fixed;" aria-hidden="true"><!--[--><i class="fas fa-arrow-circle-up"></i><!--]--></div></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 7.1.1</a> on Sun, 19 Apr 2026, 15:03:19 GMT+8]</small></div></footer><!--]--></div>
 </body><script src="/markbind/js/bootstrap-utility.min.js"></script>
 <script src="/markbind/js/polyfill.min.js"></script>
 <script src="/markbind/js/vue.global.prod.min.js"></script>
@@ -170,5 +587,4 @@
       }
     }
     </script>
-    <script src="/markbind/js/pagefind-lazyloader.js"></script>
 </html>

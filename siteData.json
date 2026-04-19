@@ -18,7 +18,21 @@
       "src": "contents/developer-guide.md",
       "title": "Power Narrator Developer Guide",
       "headings": {
-        "power-narrator-developer-guide": "Power Narrator Developer Guide"
+        "power-narrator-developer-guide": "Power Narrator Developer Guide",
+        "setup-and-amp-installation": "Setup &amp; Installation",
+        "build-instructions": "Build Instructions",
+        "system-requirements": "System Requirements",
+        "architecture-overview": "Architecture Overview",
+        "core-design-patterns": "Core Design Patterns",
+        "configuration": "Configuration",
+        "environment-variables-env": "Environment Variables (.env)",
+        "google-cloud-tts-recommended": "Google Cloud TTS (Recommended)",
+        "local-tts-offline": "Local TTS (Offline)",
+        "compiling-the-powerpoint-add-in-ppam": "Compiling the PowerPoint Add-in (PPAM)",
+        "loading-powerpoint-add-in-ppam": "Loading PowerPoint Add-in (PPAM)",
+        "project-structure": "Project Structure",
+        "xml-cli-mode": "XML CLI Mode",
+        "troubleshooting": "Troubleshooting"
       },
       "headingKeywords": {}
     },
@@ -34,7 +48,13 @@
       "src": "contents/user-guide.md",
       "title": "Power Narrator User Guide",
       "headings": {
-        "power-narrator-user-guide": "Power Narrator User Guide"
+        "power-narrator-user-guide": "Power Narrator User Guide",
+        "prerequisites": "Prerequisites",
+        "download": "Download",
+        "installation-steps": "Installation Steps",
+        "1-install-the-application": "1. Install the Application",
+        "2-install-the-powerpoint-add-in-ppam": "2. Install the PowerPoint Add-in (PPAM)",
+        "3-basic-configuration": "3. Basic Configuration"
       },
       "headingKeywords": {}
     },
