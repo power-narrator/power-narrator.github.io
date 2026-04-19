@@ -226,7 +226,7 @@
     </div>
     </button></div></pre><p>This builds the application and creates a distributable package (e.g., <code class="hljs inline no-lang">.dmg</code> or <code class="hljs inline no-lang">.app</code> for macOS) using <code class="hljs inline no-lang">electron-builder</code>.</p></li></ul> <h2 id="system-requirements">System Requirements<a class="fa fa-anchor" href="#system-requirements" onclick="event.stopPropagation()"></a></h2> <ul><li><strong>Operating System</strong>: macOS (Required for AppleScript automation)</li> <li><strong>Node.js</strong>: v25 or higher</li> <li><strong>Microsoft PowerPoint</strong>: Desktop version with a valid license</li> <li><strong>Docker Desktop</strong>: Only required if using the <strong>Local TTS</strong> mode</li></ul> <h2 id="architecture-overview">Architecture Overview<a class="fa fa-anchor" href="#architecture-overview" onclick="event.stopPropagation()"></a></h2> <p>Power Narrator is built as an Electron application with three distinct layers providing a modular and extensible architecture.</p> <pre><code class="hljs"><span>┌─────────────────────────────────────────┐
 </span><span>│           React Frontend (Vite)         │  ← src/
-</span><span>│  ViewerPage · SettingsModal · LandingPage│
+</span><span>│ ViewerPage · SettingsModal · LandingPage│
 </span><span>└────────────────┬────────────────────────┘
 </span><span>                 │  Electron IPC (ipcRenderer / ipcMain)
 </span><span>┌────────────────▼────────────────────────┐
@@ -235,19 +235,19 @@
 </span><span>└──────┬─────────────────────┬────────────┘
 </span><span>       │                     │
 </span><span>┌──────▼──────┐     ┌────────▼────────────┐
-</span><span>│ PptProvider │     │    TtsProvider       │
-</span><span>│  (Platform) │     │  (TTS Backend)       │
+</span><span>│ PptProvider │     │    TtsProvider      │
+</span><span>│  (Platform) │     │  (TTS Backend)      │
 </span><span>└──────┬──────┘     └────────┬────────────┘
 </span><span>       │                     │
-</span><span>  ┌────▼──────────┐    ┌─────▼────────────┐
-</span><span>  │ MacPptProvider│    │ GcpTtsProvider   │
-</span><span>  │ (AppleScript) │    │ LocalTtsProvider │
-</span><span>  └──────┬────────┘    └──────────────────┘
-</span><span>         │
-</span><span>  ┌──────▼────────┐
-</span><span>  │XmlPptProvider │  ← Decorator over MacPptProvider
-</span><span>  │ (XML CLI)     │      uses slide-voice-pptx binary
-</span><span>  └───────────────┘
+</span><span>┌────▼──────────┐    ┌─────▼────────────┐
+</span><span>│ MacPptProvider│    │ GcpTtsProvider   │
+</span><span>│ (AppleScript) │    │ LocalTtsProvider │
+</span><span>└──────┬────────┘    └──────────────────┘
+</span><span>       │
+</span><span>┌────────▼────────┐
+</span><span>│  XmlPptProvider │  ← Decorator over MacPptProvider
+</span><span>│   (XML CLI)     │      uses slide-voice-pptx binary
+</span><span>└─────────────────┘
 </span></code><div class="function-btn-container"><button onclick="copyCodeBlock(this)" class="function-btn d-print-none">
     <div class="tooltip-container">
     <span class="tooltiptext">Copy</span>
@@ -429,7 +429,7 @@
 
     </div>
     </div>
-    </button></div></pre></li> <li><strong>Local TTS 500 Error</strong>: Verify the Docker container is running on port <code class="hljs inline no-lang">59125</code> and the voice name in <code class="hljs inline no-lang">.env</code> is valid.</li></ul></div> <nav id="page-nav" data-v-6b1b63d2><!--[--><div class="nav-component slim-scroll"><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-6b1b63d2><!--[--><a class="nav-link py-1" href="#power-narrator-developer-guide">Power Narrator Developer Guide‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#setup-and-amp-installation">Setup &amp; Installation‎</a> <a class="nav-link py-1" href="#build-instructions">Build Instructions‎</a> <a class="nav-link py-1" href="#system-requirements">System Requirements‎</a> <a class="nav-link py-1" href="#architecture-overview">Architecture Overview‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#core-design-patterns">Core Design Patterns‎</a></nav> <a class="nav-link py-1" href="#configuration">Configuration‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#environment-variables-env">Environment Variables (.env)‎</a> <a class="nav-link py-1" href="#google-cloud-tts-recommended">Google Cloud TTS (Recommended)‎</a> <a class="nav-link py-1" href="#local-tts-offline">Local TTS (Offline)‎</a> <a class="nav-link py-1" href="#compiling-the-powerpoint-add-in-ppam">Compiling the PowerPoint Add-in (PPAM)‎</a> <a class="nav-link py-1" href="#loading-powerpoint-add-in-ppam">Loading PowerPoint Add-in (PPAM)‎</a></nav> <a class="nav-link py-1" href="#project-structure">Project Structure‎</a> <a class="nav-link py-1" href="#xml-cli-mode">XML CLI Mode‎</a> <a class="nav-link py-1" href="#troubleshooting">Troubleshooting‎</a></nav><!--]--><!--v-if--></nav></div><!--]--><!--v-if--></nav> <div class="scroll-top-button fa-lg d-print-none" style="display:none;bottom:2%;right:2%;position:fixed;" aria-hidden="true"><!--[--><i class="fas fa-arrow-circle-up"></i><!--]--></div></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 6.3.1</a> on Sun, 19 Apr 2026, 15:07:40 GMT+8]</small></div></footer><!--]--></div>
+    </button></div></pre></li> <li><strong>Local TTS 500 Error</strong>: Verify the Docker container is running on port <code class="hljs inline no-lang">59125</code> and the voice name in <code class="hljs inline no-lang">.env</code> is valid.</li></ul></div> <nav id="page-nav" data-v-6b1b63d2><!--[--><div class="nav-component slim-scroll"><nav id="mb-page-nav" class="nav nav-pills flex-column my-0 small no-flex-wrap" data-v-6b1b63d2><!--[--><a class="nav-link py-1" href="#power-narrator-developer-guide">Power Narrator Developer Guide‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#setup-and-amp-installation">Setup &amp; Installation‎</a> <a class="nav-link py-1" href="#build-instructions">Build Instructions‎</a> <a class="nav-link py-1" href="#system-requirements">System Requirements‎</a> <a class="nav-link py-1" href="#architecture-overview">Architecture Overview‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#core-design-patterns">Core Design Patterns‎</a></nav> <a class="nav-link py-1" href="#configuration">Configuration‎</a> <nav class="nav nav-pills flex-column my-0 nested no-flex-wrap"><a class="nav-link py-1" href="#environment-variables-env">Environment Variables (.env)‎</a> <a class="nav-link py-1" href="#google-cloud-tts-recommended">Google Cloud TTS (Recommended)‎</a> <a class="nav-link py-1" href="#local-tts-offline">Local TTS (Offline)‎</a> <a class="nav-link py-1" href="#compiling-the-powerpoint-add-in-ppam">Compiling the PowerPoint Add-in (PPAM)‎</a> <a class="nav-link py-1" href="#loading-powerpoint-add-in-ppam">Loading PowerPoint Add-in (PPAM)‎</a></nav> <a class="nav-link py-1" href="#project-structure">Project Structure‎</a> <a class="nav-link py-1" href="#xml-cli-mode">XML CLI Mode‎</a> <a class="nav-link py-1" href="#troubleshooting">Troubleshooting‎</a></nav><!--]--><!--v-if--></nav></div><!--]--><!--v-if--></nav> <div class="scroll-top-button fa-lg d-print-none" style="display:none;bottom:2%;right:2%;position:fixed;" aria-hidden="true"><!--[--><i class="fas fa-arrow-circle-up"></i><!--]--></div></div> <footer><div class="text-center"><small>[Powered by <img src="https://markbind.org/favicon.ico" width="30"> <a href="https://markbind.org/">MarkBind 6.3.1</a> on Sun, 19 Apr 2026, 15:27:38 GMT+8]</small></div></footer><!--]--></div>
 </body><script src="/markbind/js/bootstrap-utility.min.js"></script>
 <script src="/markbind/js/polyfill.min.js"></script>
 <script src="/markbind/js/vue.global.prod.min.js"></script>
