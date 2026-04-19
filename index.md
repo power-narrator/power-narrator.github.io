@@ -19,5 +19,5 @@ Power Narrator is a desktop app that can **<span class="text-info">generate AI a
 </div>
 </header>
 
-More info coming soon ...
+![UI Image](images/ui.png)
 
