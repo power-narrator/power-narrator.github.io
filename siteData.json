@@ -15,6 +15,21 @@
       "headingKeywords": {}
     },
     {
+      "src": "contents/audio-samples.md",
+      "title": "Audio Samples (Internal)",
+      "headings": {
+        "audio-samples-internal": "Audio Samples (Internal)",
+        "pronunciation-and-articulation": "Pronunciation and articulation",
+        "pitch-and-stress": "Pitch and stress",
+        "rhythm-phrasing-and-pausing": "Rhythm, phrasing and pausing",
+        "continuity-across-sections": "Continuity across sections",
+        "expressiveness-and-appropriateness": "Expressiveness and appropriateness",
+        "acoustic-quality-and-voice-consistency": "Acoustic quality and voice consistency",
+        "controllability-and-instruction-adherence": "Controllability and instruction adherence"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "contents/developer-guide.md",
       "title": "Power Narrator Developer Guide",
       "headings": {
